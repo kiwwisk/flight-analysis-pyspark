@@ -1,0 +1,46 @@
+services:
+  spark-master:
+    image: "spark:python3"
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    command: "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --ip 0.0.0.0 --port 7077 --webui-port 8080"
+#    network_mode: "host"
+
+  spark-worker:
+    image: "spark:python3"
+    depends_on:
+      - "spark-master"
+    ports:
+      - "8081:8080"
+    command: "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker --webui-port 8080 spark-master:7077"
+    volumes:
+      - "/home/andrej/Data/projects/valllue-zadanie:/app"
+#    network_mode: "host"
+
+  postgres:
+    image: "postgres:13"
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    volumes:
+      - postgres:/var/lib/postgres/data
+
+  pgadmin:
+    image: "dpage/pgadmin4"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - 15432:80
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    depends_on:
+      - postgres
+
+volumes:
+  postgres:
+  pgadmin:
+
