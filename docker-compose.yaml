@@ -5,7 +5,6 @@ services:
       - "8080:8080"
       - "7077:7077"
     command: "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master --ip 0.0.0.0 --port 7077 --webui-port 8080"
-#    network_mode: "host"
 
   spark-worker:
     image: "spark:python3"
@@ -16,7 +15,6 @@ services:
     command: "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker --webui-port 8080 spark-master:7077"
     volumes:
       - "/home/andrej/Data/projects/valllue-zadanie:/app"
-#    network_mode: "host"
 
   postgres:
     image: "postgres:13"
