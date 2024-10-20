@@ -13,8 +13,6 @@ services:
     ports:
       - "8081:8080"
     command: "/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker --webui-port 8080 spark-master:7077"
-    volumes:
-      - "/home/andrej/Data/projects/valllue-zadanie:/app"
 
   postgres:
     image: "postgres:13"
