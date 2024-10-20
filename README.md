@@ -15,14 +15,22 @@ Opened ports on `localhost`:
 - `8081` - spark worker 1
 - `15432` - pgadmin web interface
 
-To connect to pgadmin web interface:
+
+In the pgadmin you can connect to `postgres:5432` PostgreSQL server.
+
+## Preparing PostgreSQL database
+
+Open pgAdmin web UI on `localhost:15432` and login using
 
 user: `admin@pgadmin.com`
 password: `password`
 
-In the pgadmin you can connect to `postgres:5432` PostgreSQL server.
+Add PostgreSQL server using connection with hostname `postgres` default port `5432`.
 
-**Make sure you create database `zadanie` in PostgreSQL instance!**
+user: `postgres`
+password: `postgres`
+
+After connecting to a server, create `zadanie` empty database.
 
 ## Building image with pyspark tasks
 
@@ -35,7 +43,7 @@ This build the image based on `python:3.8-slim` with `pyspark`, `OpenJDK` and `p
 To run the image type from the project dir:
 
 ```bash
-docker run --rm --network="valllue-zadanie_default" pyspark-demo/ake:1.0
+docker run  --rm --network="valllue-zadanie_default" pyspark-demo/ake:1.0
 ```
 
 ---
