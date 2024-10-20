@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# vim swp files
+*.swp
+
+# pyenv version
+.python-version
+
 # Distribution / packaging
 .Python
 build/
