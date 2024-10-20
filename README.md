@@ -22,7 +22,7 @@ password: `password`
 
 In the pgadmin you can connect to `postgres:5432` PostgreSQL server.
 
-** Make sure you create database `zadanie` in PostgreSQL instance! **
+**Make sure you create database `zadanie` in PostgreSQL instance!**
 
 ## Building image with pyspark tasks
 
@@ -35,7 +35,7 @@ This build the image based on `python:3.8-slim` with `pyspark`, `OpenJDK` and `p
 To run the image type from the project dir:
 
 ```bash
-docker run -it --rm --network="valllue-zadanie_default" pyspark-demo/ake:1.0
+docker run --rm --network="valllue-zadanie_default" pyspark-demo/ake:1.0
 ```
 
 ---
