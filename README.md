@@ -8,7 +8,7 @@ In the command line start testing environment (pyspark master, worker, postgresq
 docker compose up -d
 ```
 
-Opened ports:
+Opened ports on `localhost`:
 
 - `8080` - spark master web interface
 - `7077` - spark port for workers
@@ -21,6 +21,8 @@ user: `admin@pgadmin.com`
 password: `password`
 
 In the pgadmin you can connect to `postgres:5432` PostgreSQL server.
+
+** Make sure you create database `zadanie` in PostgreSQL instance! **
 
 ## Building image with pyspark tasks
 
@@ -68,3 +70,4 @@ Upon running you should see:
 |c1bbb6b086a6d38a0a97c39ae177ddb512719bf1e6e4f304dbba3bb13a29736a|InGate   |2023-10-03T10:45:53.021|EIDVL            |476         |
 +----------------------------------------------------------------+---------+-----------------------+-----------------+------------+
 ```
+
